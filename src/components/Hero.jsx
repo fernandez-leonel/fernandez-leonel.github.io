@@ -12,7 +12,7 @@ function Hero() {
         >
           <p className="hero-tag">Hola, soy</p>
 
-          <h1 className="hero-title">Leonel Fernández</h1>
+          <h1 className="hero-title">Leonel Fernandez</h1>
 
           <h2 className="hero-subtitle">
             Técnico Universitario en Programación · Desarrollador Full Stack
