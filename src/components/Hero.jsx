@@ -104,6 +104,16 @@ function Hero() {
             <a href="#contact" className="secondary-btn hero-secondary-btn">
               Contactarme
             </a>
+
+            <a
+              href="/Leonel_Fernandez_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondary-btn hero-secondary-btn hero-cv-btn"
+            >
+              <span>Descargar CV</span>
+              <span className="download-icon">↓</span>
+            </a>
           </motion.div>
 
           <motion.div
@@ -119,7 +129,7 @@ function Hero() {
 
             <div className="stat-box">
               <h3>Backend</h3>
-              <p>Node.js, Express, Django y APIs REST</p>
+              <p>Node.js, Express, .NET y APIs REST</p>
             </div>
 
             <div className="stat-box">

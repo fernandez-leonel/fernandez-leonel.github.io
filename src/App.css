@@ -1294,3 +1294,54 @@ body {
 .education-item ul {
   margin: 10px 0 10px 20px;
 }
+
+.cv-header-btn {
+  min-width: 110px;
+}
+
+.cv-header-btn:hover {
+  border-color: #ff7a00;
+  color: #ff7a00;
+}
+
+.cv-header-btn {
+  min-width: 110px;
+  gap: 8px;
+}
+
+.download-svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.hero-cv-btn {
+  min-width: 210px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.download-icon {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-buttons .secondary-btn {
+  min-height: 56px;
+}
+
+.hero-buttons .primary-btn {
+  min-height: 56px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
