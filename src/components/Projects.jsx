@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { createPortal } from "react-dom"
 import Reveal from "./Reveal"
 
 function ProjectShowcase({
@@ -17,10 +18,12 @@ function ProjectShowcase({
   const openModal = (index) => {
     setModalIndex(index)
     setIsModalOpen(true)
+    document.body.style.overflow = "hidden"
   }
 
   const closeModal = () => {
     setIsModalOpen(false)
+    document.body.style.overflow = ""
   }
 
   const prevModalImage = () => {
@@ -49,16 +52,18 @@ function ProjectShowcase({
               ))}
             </div>
 
-            <div className="project-actions">
-              <a
-                href={repoLink}
-                target="_blank"
-                rel="noreferrer"
-                className="primary-btn"
-              >
-                Ver repositorio
-              </a>
-            </div>
+            {repoLink && (
+              <div className="project-actions">
+                <a
+                  href={repoLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="primary-btn"
+                >
+                  Ver repositorio
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="project-gallery-wrapper">
@@ -92,47 +97,49 @@ function ProjectShowcase({
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="image-modal-overlay" onClick={closeModal}>
-          <div
-            className="image-modal-content carousel-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="image-modal-close"
-              onClick={closeModal}
-              type="button"
+      {isModalOpen &&
+        createPortal(
+          <div className="image-modal-overlay" onClick={closeModal}>
+            <div
+              className="image-modal-content carousel-modal"
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
+              <button
+                className="image-modal-close"
+                onClick={closeModal}
+                type="button"
+              >
+                ×
+              </button>
 
-            <button
-              className="carousel-btn carousel-btn-left"
-              onClick={prevModalImage}
-              type="button"
-            >
-              ‹
-            </button>
+              <button
+                className="carousel-btn carousel-btn-left"
+                onClick={prevModalImage}
+                type="button"
+              >
+                ‹
+              </button>
 
-            <img
-              src={images[modalIndex]}
-              alt={`Vista ampliada ${modalIndex + 1}`}
-            />
+              <img
+                src={images[modalIndex]}
+                alt={`Vista ampliada ${modalIndex + 1}`}
+              />
 
-            <button
-              className="carousel-btn carousel-btn-right"
-              onClick={nextModalImage}
-              type="button"
-            >
-              ›
-            </button>
+              <button
+                className="carousel-btn carousel-btn-right"
+                onClick={nextModalImage}
+                type="button"
+              >
+                ›
+              </button>
 
-            <div className="modal-counter">
-              {modalIndex + 1} / {images.length}
+              <div className="modal-counter">
+                {modalIndex + 1} / {images.length}
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   )
 }
@@ -148,6 +155,16 @@ function Projects() {
     "/images/productos-admin.png",
     "/images/informe.png",
     "/images/informes.png",
+  ]
+
+  const inventarioImages = [
+    "/images/dashboard.png",
+    "/images/ventas.png",
+    "/images/importar-excel.png",
+    "/images/catálogo.png",
+    "/images/stock.png",
+    "/images/proveedores.png",
+    "/images/reportes.png",
   ]
 
   const integradorImages = [
@@ -171,6 +188,18 @@ function Projects() {
         <Reveal delay={0.06}>
           <ProjectShowcase
             badge="Proyecto principal"
+            title="Sistema de Gestión de Inventario y Ventas"
+            description1="Sistema web orientado a la gestión de inventario y ventas para PyMEs. Permite administrar productos, controlar stock, registrar movimientos y calcular precios automáticamente según reglas de margen."
+            description2="Incluye importación masiva desde Excel, panel de gestión y lógica de negocio para trabajar con márgenes por producto, categoría y configuración global."
+            techs={["React", "Node.js", "Express", "MySQL", "Axios", "XLSX"]}
+            repoLink=""
+            images={inventarioImages}
+          />
+        </Reveal>
+
+        <Reveal delay={0.09}>
+          <ProjectShowcase
+            badge="Proyecto Académico"
             title="Feraytek · Ecommerce y sistema de gestión"
             description1="Plataforma web orientada a comercio electrónico y administración comercial, con catálogo de productos, carrito, detalle de productos, pedidos, panel administrativo, informes y gestión de datos."
             description2="Este proyecto refleja un enfoque full stack real, combinando experiencia de usuario, backend, base de datos y lógica de negocio en una sola solución."
