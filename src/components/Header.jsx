@@ -22,7 +22,7 @@ function Header() {
           </a>
 
           <a
-            href="/Leonel_Fernandez_CV.pdf"
+            href="/Fernandez-Leonel.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="header-btn secondary-btn cv-header-btn"

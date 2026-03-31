@@ -75,7 +75,7 @@ function Hero() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/leonel-fernandez-951b083a1/"
+              href="https://www.linkedin.com/in/fernandez-leonel/"
               target="_blank"
               rel="noreferrer"
             >
@@ -106,7 +106,7 @@ function Hero() {
             </a>
 
             <a
-              href="/Leonel_Fernandez_CV.pdf"
+              href="Fernandez-Leonel.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="secondary-btn hero-secondary-btn hero-cv-btn"
